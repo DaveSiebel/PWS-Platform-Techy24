@@ -14,6 +14,22 @@ app.get('', (req, res) => {
 	res.render('index');
 });
 
+app.get('/winkelmand', (req, res) => {
+	res.render('winkelmand');
+});
+
+app.get('/winkelmand', (req, res) => {
+	res.render('winkelmand');
+});
+
+app.get('/zoekfunctie', (req, res) => {
+	res.render('zoekfunctie');
+});
+
+app.get('/zoekresultaten', (req, res) => {
+	res.render('zoekresultaten');
+});
+
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
