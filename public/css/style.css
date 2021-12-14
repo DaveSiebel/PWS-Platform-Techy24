@@ -1,0 +1,43 @@
+:root {
+	font-size: 16px;
+	--text-primary: #b6b6b6;
+	--text-secondary: #ececec;
+	--bg-primary: #23232e;
+	--bg-secondary: #141418;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#home-btn {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	float: left;
+}
+
+#contact-btn {
+	float: left;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+}
+
+#search-btn {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+	background-color: var(--bg-primary);
+	transform: translateX(50%);
+	transform: translateY(50%);
+	color: var(--text-primary);
+}
