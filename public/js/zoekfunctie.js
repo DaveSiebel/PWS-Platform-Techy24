@@ -7,15 +7,9 @@ submit.addEventListener('click', (e) => {
 	getSearch();
 });
 
-let config = {
-	headers: {
-		'Access-Control-Allow-Origin': 'http://127.0.0.1:5500',
-	}
-}
-
 let getSearch = async () => {
 	let res = await axios.get(
-		`https://www.bol.com/nl/rnwy/search-suggestions/products?query=${input.value}`, config
+		`https://www.bol.com/nl/rnwy/search-suggestions/products?query=${input.value}`
 	);
 	console.log(res);
 	makeElement(res.data);
