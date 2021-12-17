@@ -1,43 +1,71 @@
 :root {
-	font-size: 16px;
-	--text-primary: #b6b6b6;
-	--text-secondary: #ececec;
-	--bg-primary: #23232e;
-	--bg-secondary: #141418;
+  font-size: 16px;
+  font-family: "Calibri", "Trebuchet MS", sans-serif;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
 }
 
 body {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-#home-btn {
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	padding-left: 0.4rem;
-	padding-right: 0.4rem;
-	background-color: var(--bg-primary);
-	color: var(--text-primary);
-	float: left;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
 }
 
-#contact-btn {
-	float: left;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	padding-left: 0.4rem;
-	padding-right: 0.4rem;
-	background-color: var(--bg-primary);
-	color: var(--text-primary);
+li {
+  float: left;
 }
 
-#search-btn {
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	padding-left: 0.4rem;
-	padding-right: 0.4rem;
-	background-color: var(--bg-primary);
-	transform: translateX(50%);
-	transform: translateY(50%);
-	color: var(--text-primary);
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #04aa6d;
+}
+
+nav {
+  clear: both;
+}
+
+.topNav {
+  background-color: white;
+  margin: 10px;
+}
+
+.topNav p {
+  float: left;
+}
+
+.topNav .linksText {
+  width: 33%;
+  text-align: left;
+}
+
+.topNav .middenText {
+  width: 33%;
+  text-align: center;
+}
+
+.topNav .rechtsText {
+  width: 33%;
+  text-align: right;
 }
