@@ -46,7 +46,7 @@ async function start() {
 		'https://www.bol.com/nl/nl/p/apple-airpods-2-met-reguliere-oplaadcase/9200000108340791/?bltgh=omqEYt0S3RQNAvqrayNIZg.2_35.36.ProductImage'
 	);
 	await page.click('.js-confirm-button');
-	const productTitel = await page.$eval(
+	const productNaam = await page.$eval(
 		'.page-heading span',
 		(el) => el.textContent
 	);
@@ -54,9 +54,23 @@ async function start() {
 		'.page-heading .sub-title',
 		(el) => el.textContent
 	);
-	console.log(productTitel);
-	console.log(productBeschrijving);
+	dataNaarBackend(productNaam, productBeschrijving);
 	await browser.close();
+}
+
+function dataNaarBackend(productNaam, productBeschrijving) {
+	const data = dataNaarObject(productNaam, productBeschrijving);
+	app.get('/api', function (req, res) {
+		res.json(data);
+	});
+}
+
+function dataNaarObject(productNaam, productBeschrijving) {
+	const data = {
+		productTitel: productNaam,
+		productBeschrijving: productBeschrijving,
+	};
+	return data;
 }
 
 start();
