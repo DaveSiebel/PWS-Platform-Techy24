@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 app.use(express.static('public'));
 app.use('/css', express.static(__dirname + 'public/css'));
 app.use('/js', express.static(__dirname + 'public/js'));
@@ -39,31 +41,44 @@ app.get('/product', (req, res) => {
 const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
 
-async function start() {
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-	await page.goto(
-		'https://www.bol.com/nl/nl/p/apple-airpods-2-met-reguliere-oplaadcase/9200000108340791/?bltgh=omqEYt0S3RQNAvqrayNIZg.2_35.36.ProductImage'
-	);
-	await page.click('.js-confirm-button');
-	const productNaam = await page.$eval(
-		'.page-heading span',
-		(el) => el.textContent
-	);
-	const productBeschrijving = await page.$eval(
-		'.page-heading .sub-title',
-		(el) => el.textContent
-	);
-	dataNaarBackend(productNaam, productBeschrijving);
-	await browser.close();
-}
+app.post('/api', (req, res) => {
+	const object = {
+		zoekLink: req.body.testWaarde,
+	};
 
-function dataNaarBackend(productNaam, productBeschrijving) {
-	const data = dataNaarObject(productNaam, productBeschrijving);
-	app.get('/api', function (req, res) {
+	async function start() {
+		const browser = await puppeteer.launch();
+		const page = await browser.newPage();
+		await page.goto(object.zoekLink);
+		await page.click('.js-confirm-button');
+		try {
+			const productNaam = await page.$eval(
+				'.page-heading span',
+				(el) => el.textContent
+			);
+		} catch {
+			productNaam = '';
+		}
+		try {
+			const productBeschrijving = await page.$eval(
+				'.page-heading .sub-title',
+				(el) => el.textContent
+			);
+		} catch {
+			productBeschrijving = '';
+		}
+
+		dataNaarFrontend(productNaam, productBeschrijving);
+		await browser.close();
+	}
+
+	start();
+
+	function dataNaarFrontend(productNaam, productBeschrijving) {
+		const data = dataNaarObject(productNaam, productBeschrijving);
 		res.json(data);
-	});
-}
+	}
+});
 
 function dataNaarObject(productNaam, productBeschrijving) {
 	const data = {
@@ -72,8 +87,6 @@ function dataNaarObject(productNaam, productBeschrijving) {
 	};
 	return data;
 }
-
-start();
 
 // Express
 app.listen(port, () => {
