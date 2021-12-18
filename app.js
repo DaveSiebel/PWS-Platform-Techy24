@@ -51,23 +51,23 @@ app.post('/api', (req, res) => {
 		const page = await browser.newPage();
 		await page.goto(object.zoekLink);
 		await page.click('.js-confirm-button');
+
+		let productNaam = '';
+		let productBeschrijving = '';
+
 		try {
-			const productNaam = await page.$eval(
+			productNaam = await page.$eval(
 				'.page-heading span',
 				(el) => el.textContent
 			);
-		} catch {
-			productNaam = '';
-		}
+		} catch {}
+
 		try {
-			const productBeschrijving = await page.$eval(
+			productBeschrijving = await page.$eval(
 				'.page-heading .sub-title',
 				(el) => el.textContent
 			);
-		} catch {
-			productBeschrijving = '';
-		}
-
+		} catch {}
 		dataNaarFrontend(productNaam, productBeschrijving);
 		await browser.close();
 	}

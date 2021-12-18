@@ -9,11 +9,21 @@ let submit = document.querySelector('#submit');
 
 submit.addEventListener('click', (e) => {
 	e.preventDefault();
-	makeRequest();
+	getSearch();
 });
-async function makeRequest() {
+
+let getSearch = async () => {
+	let res = await axios.get(
+		`https://www.bol.com/nl/rnwy/search-suggestions/products?query=${input.value}`
+	);
+	console.log(res);
+	zoekLink = 'https://bol.com' + res.data.suggestions[0].href;
+	makeRequest(zoekLink);
+};
+
+async function makeRequest(zoekLink) {
 	const reqdata = {
-		testWaarde: input.value,
+		testWaarde: zoekLink,
 	};
 	console.log(reqdata);
 
