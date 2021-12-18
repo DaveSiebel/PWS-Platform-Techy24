@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 app.use(express.static('public'));
 app.use('/css', express.static(__dirname + 'public/css'));
 app.use('/js', express.static(__dirname + 'public/js'));
@@ -39,27 +41,52 @@ app.get('/product', (req, res) => {
 const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
 
-async function start() {
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-	await page.goto(
-		'https://www.bol.com/nl/nl/p/apple-airpods-2-met-reguliere-oplaadcase/9200000108340791/?bltgh=omqEYt0S3RQNAvqrayNIZg.2_35.36.ProductImage'
-	);
-	await page.click('.js-confirm-button');
-	const productTitel = await page.$eval(
-		'.page-heading span',
-		(el) => el.textContent
-	);
-	const productBeschrijving = await page.$eval(
-		'.page-heading .sub-title',
-		(el) => el.textContent
-	);
-	console.log(productTitel);
-	console.log(productBeschrijving);
-	await browser.close();
-}
+app.post('/api', (req, res) => {
+	const object = {
+		zoekLink: req.body.testWaarde,
+	};
 
-start();
+	async function start() {
+		const browser = await puppeteer.launch();
+		const page = await browser.newPage();
+		await page.goto(object.zoekLink);
+		await page.click('.js-confirm-button');
+
+		let productNaam = '';
+		let productBeschrijving = '';
+
+		try {
+			productNaam = await page.$eval(
+				'.page-heading span',
+				(el) => el.textContent
+			);
+		} catch {}
+
+		try {
+			productBeschrijving = await page.$eval(
+				'.page-heading .sub-title',
+				(el) => el.textContent
+			);
+		} catch {}
+		dataNaarFrontend(productNaam, productBeschrijving);
+		await browser.close();
+	}
+
+	start();
+
+	function dataNaarFrontend(productNaam, productBeschrijving) {
+		const data = dataNaarObject(productNaam, productBeschrijving);
+		res.json(data);
+	}
+});
+
+function dataNaarObject(productNaam, productBeschrijving) {
+	const data = {
+		productTitel: productNaam,
+		productBeschrijving: productBeschrijving,
+	};
+	return data;
+}
 
 // Express
 app.listen(port, () => {

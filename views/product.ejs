@@ -6,10 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Product pagina</title>
 		<link rel="stylesheet" href="css/style.css" />
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 	</head>
 	<body>
 		<%- include('../partials/header'); %>
+		<form id="form">
+		<input type="text" id="form_input" />
+		<button type="submit" id="submit">Zoek</button>
+	</form>
         <h2 id="productNaam">Kerstboom</h2>
         <h3 id="productBeschrijving">Boom met mooie verlichting</h2>
         <p id="Prijs">14,00</p>
