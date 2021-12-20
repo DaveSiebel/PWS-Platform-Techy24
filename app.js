@@ -65,6 +65,8 @@ app.post('/api', (req, res) => {
 		let productNaam = '';
 		let productBeschrijving = '';
 		let productPrijs = 'ERROR';
+		let productAfbeelding =
+			'https://www.globalsign.com/application/files/9516/0389/3750/What_Is_an_SSL_Common_Name_Mismatch_Error_-_Blog_Image.jpg';
 
 		// Zoek de titel, beschrijving en prijs
 		try {
@@ -85,25 +87,53 @@ app.post('/api', (req, res) => {
 			productPrijs = await page.$eval('.promo-price', (el) => el.textContent);
 		} catch {}
 
-		dataNaarFrontend(productNaam, productBeschrijving, productPrijs);
+		try {
+			productAfbeelding = await page.$eval(
+				'.js_selected_image',
+				(el) => el.src
+			);
+		} catch {}
+
+		dataNaarFrontend(
+			productNaam,
+			productBeschrijving,
+			productPrijs,
+			productAfbeelding
+		);
 		await browser.close();
 	}
 
 	start();
 
-	function dataNaarFrontend(productNaam, productBeschrijving, productPrijs) {
+	function dataNaarFrontend(
+		productNaam,
+		productBeschrijving,
+		productPrijs,
+		productAfbeelding
+	) {
 		// Verstuur de data naar Frond-end
-		const data = dataNaarObject(productNaam, productBeschrijving, productPrijs);
+		const data = dataNaarObject(
+			productNaam,
+			productBeschrijving,
+			productPrijs,
+			productAfbeelding
+		);
 		res.json(data);
 	}
 });
 
-function dataNaarObject(productNaam, productBeschrijving, productPrijs) {
+function dataNaarObject(
+	productNaam,
+	productBeschrijving,
+	productPrijs,
+	productAfbeelding
+) {
 	// Zet de data in een JSON object om het te kunnen versturen
 	const data = {
 		productTitel: productNaam,
 		productBeschrijving: productBeschrijving,
 		productPrijs: productPrijs,
+		productAfbeelding: productAfbeelding,
 	};
 	return data;
 }

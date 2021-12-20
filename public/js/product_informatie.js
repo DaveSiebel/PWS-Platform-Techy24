@@ -3,6 +3,7 @@
 const productNaam = document.querySelector('#productNaam');
 const productBeschrijving = document.querySelector('#productBeschrijving');
 const productPrijs = document.querySelector('#productPrijs');
+const productAfbeelding = document.querySelector('#productAfbeelding');
 
 let form = document.querySelector('#form');
 let input = document.querySelector('#form_input');
@@ -39,6 +40,7 @@ async function makeRequest(zoekLink) {
 	productNaam.textContent = data.productTitel;
 	productBeschrijving.textContent = data.productBeschrijving;
 	productPrijs.textContent = '€' + data.productPrijs;
+	productAfbeelding.src = data.productAfbeelding;
 }
 
 // Haal de zoekterm op uit de link
@@ -56,5 +58,7 @@ submit.addEventListener('click', (e) => {
 	productNaam.textContent = 'Laden...';
 	productBeschrijving.textContent = 'Laden...';
 	productPrijs.textContent = 'Laden...';
+	productAfbeelding.src =
+		'https://www.vuescript.com/wp-content/uploads/2018/11/Show-Loader-During-Image-Loading-vue-load-image.png';
 	getSearch(input.value);
 });
