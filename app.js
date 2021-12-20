@@ -1,17 +1,23 @@
+// Maak de back-end server met Express
 const express = require('express');
 const app = express();
 const port = 3000;
 
+// Importeer functies uit Express om te gebruiken met JSON
 app.use(express.json());
 
+// Stel vast waar alle bestanden zijn opgeslagen
 app.use(express.static('public'));
 app.use('/css', express.static(__dirname + 'public/css'));
 app.use('/js', express.static(__dirname + 'public/js'));
 app.use('/img', express.static(__dirname + 'public/img'));
 
 app.set('views, ./views');
+
+// Vertel Express om EJS te gebruiken
 app.set('view engine', 'ejs');
 
+// Zorg dat de link uitkomt bij het bestand
 app.get('', (req, res) => {
 	res.render('index');
 });
@@ -22,10 +28,6 @@ app.get('/winkelmand', (req, res) => {
 
 app.get('/bestellen', (req, res) => {
 	res.render('bestellen');
-});
-
-app.get('/zoekresultaten', (req, res) => {
-	res.render('zoekresultaten');
 });
 
 app.get('/product', (req, res) => {
@@ -40,16 +42,18 @@ app.get('/bestellen', (req, res) => {
 	res.render('bestellen');
 });
 
-// Puppeteer
+// Importeer Puppeteer (Data-scraper)
 
 const puppeteer = require('puppeteer');
-const fs = require('fs').promises;
 
+// Luister naar API post requests
 app.post('/api', (req, res) => {
+	// Zet de verzochte link in een object
 	const object = {
 		zoekLink: req.body.testWaarde,
 	};
 
+	// Start met het data-scrapen
 	async function start() {
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
