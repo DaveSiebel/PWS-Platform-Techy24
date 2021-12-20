@@ -53,17 +53,20 @@ app.post('/api', (req, res) => {
 		zoekLink: req.body.testWaarde,
 	};
 
-	// Start met het data-scrapen
+	// Start met het data-scrapen met Puppeteer
 	async function start() {
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
+		// Ga naar de pagina van bol.com
 		await page.goto(object.zoekLink);
+		// Accepteer de cookies
 		await page.click('.js-confirm-button');
 
 		let productNaam = '';
 		let productBeschrijving = '';
 		let productPrijs = 'ERROR';
 
+		// Zoek de titel, beschrijving en prijs
 		try {
 			productNaam = await page.$eval(
 				'.page-heading span',
@@ -89,12 +92,14 @@ app.post('/api', (req, res) => {
 	start();
 
 	function dataNaarFrontend(productNaam, productBeschrijving, productPrijs) {
+		// Verstuur de data naar Frond-end
 		const data = dataNaarObject(productNaam, productBeschrijving, productPrijs);
 		res.json(data);
 	}
 });
 
 function dataNaarObject(productNaam, productBeschrijving, productPrijs) {
+	// Zet de data in een JSON object om het te kunnen versturen
 	const data = {
 		productTitel: productNaam,
 		productBeschrijving: productBeschrijving,
@@ -103,7 +108,9 @@ function dataNaarObject(productNaam, productBeschrijving, productPrijs) {
 	return data;
 }
 
-// Express
+// Express server starten
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
+	console.log(
+		`De website is te bereiken via de volgende link: http://localhost:${port}`
+	);
 });
