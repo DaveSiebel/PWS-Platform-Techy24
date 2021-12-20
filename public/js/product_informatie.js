@@ -1,4 +1,4 @@
-// Zoek de HTML elementen
+// Importeer de HTML elementen (Productnaam, Productbeschrijving, Productprijs en Afbeelding)
 
 const productNaam = document.querySelector('#productNaam');
 const productBeschrijving = document.querySelector('#productBeschrijving');
