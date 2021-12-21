@@ -1,16 +1,83 @@
 <!-- Spreek voor zich -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	</head>
-	<body>
-		<%- include('../partials/header'); %>
-		<script src="js/zoekbalk.js"></script>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="topNav">
+			<p class="linksText">Gratis verzending</p>
+			<p class="middenText">Voor 10 uur bestellen</p>
+			<p class="rechtsText">Bel onze klantenservice voor vragen</p>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/">Home </a> </li>
+				<li><a href="/klantenservice" class="active">Klantenservice</a>
+				</li>
+				<li style="float: right"><a href="/winkelmand">Winkelmand</a></li>
+			</ul>
+			<div class="search-container">
+				<form id="form">
+					<input type="text" id="form_input" />
+					<button type="submit" id="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<script src="js/zoekbalk.js"></script>
+
+	<div class="row2">
+		<div class="column2">
+			<h1>24/7 Berijkbaar</h1>
+			<span></span>
+			<a href="#">Bekijk</a>
+		</div>
+		<div class="column2">
+			<h1>Consoles</h1>
+			<span>img</span>
+			<a href="#">Bekijk</a>
+		</div>
+		<div class="column2">
+			<h1>Deals</h1>
+			<span>img</span>
+			<a href="#">Bekijk</a>
+		</div>
+	</div>
+
+	<div class="form">
+		<form action="/action_page.php">
+			<label for="fname">Voornaam</label>
+			<input type="text" id="fname" name="firstname" placeholder="Uw voornaam..">
+
+			<label for="lname">Achternaam</label>
+			<input type="text" id="lname" name="lastname" placeholder="Uw achternaam..">
+
+			<label for="bestelnr">Bestelnummer</label>
+			<input type="text" id="lname" name="bestelnr" placeholder="Uw bestelnumnmer..">
+
+			<label for="bericht">Uw bericht</label>
+			<input type="text" id="lname" name="bericht" placeholder="Uw bericht.." style="height: 100px;">
+
+			<label for="country">Land</label>
+			<select id="country" name="country">
+				<option value="australia">Nederland</option>
+				<option value="canada">België</option>
+				<option value="usa">Buiten BeNeLux</option>
+			</select>
+
+			<input type="submit" value="Verstuur">
+		</form>
+	</div>
+</body>
+
 </html>

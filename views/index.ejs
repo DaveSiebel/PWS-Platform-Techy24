@@ -13,8 +13,26 @@
 </head>
 
 <body>
-	<!-- Dit voegt de header toe uit /partials/header. Pas daar dus ook de header aan als je die wilt aanpassen -->
-	<%- include('../partials/header'); %>
+	<header>
+		<div class="topNav">
+			<p class="linksText">Gratis verzending</p>
+			<p class="middenText">Voor 10 uur bestellen</p>
+			<p class="rechtsText">Bel onze klantenservice voor vragen</p>
+		</div>
+		<nav>
+			<ul>
+				<li><a class="active" href="/">Home</a></li>
+				<li><a href="/klantenservice">Klantenservice</a></li>
+				<li style="float: right"><a href="/winkelmand">Winkelmand</a></li>
+			</ul>
+			<div class="search-container">
+				<form id="form">
+					<input type="text" id="form_input" />
+					<button type="submit" id="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+		</nav>
+	</header>
 	<div class="wrapper">
 		<div class="slideshow-container">
 			<!-- Full-width images with number and caption text -->
@@ -81,6 +99,8 @@
 			</div>
 		</div>
 	</div>
+
+	<%- include('../partials/footer'); %>
 
 	<script>
 		var slideIndex = 1;
