@@ -1,3 +1,12 @@
+:root {
+    font-size: 16px;
+    font-family: "Calibri", "Trebuchet MS", sans-serif;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
 @media (max-width: 800px) {
     .shopping-cart {
         width: 100%;
@@ -194,7 +203,6 @@ body {
     height: 100%;
     margin: 0;
     background-color: lightgrey;
-    font-family: 'Roboto', sans-serif;
 }
 
 ul {
@@ -226,7 +234,7 @@ li a:hover:not(.active) {
 
 li a.active {
     color: white;
-    background-color: #04aa6d;
+    background-color: lightgray;
 }
 
 header {
@@ -272,7 +280,7 @@ ul input[type=text] {
     border: none;
     margin-top: 8px;
     margin-left: 16px;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
@@ -332,7 +340,7 @@ nav input[type=text] {
     padding-left: 5px;
     padding-right: 40px;
     margin-top: 8px;
-    font-size: 17px;
+    font-size: 16px;
     border: none;
 }
 
@@ -342,7 +350,7 @@ nav .search-container button {
     margin-top: 8px;
     margin-right: 8px;
     background: #ddd;
-    font-size: 17px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
 }
