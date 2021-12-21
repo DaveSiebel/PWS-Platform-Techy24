@@ -17,7 +17,7 @@
 		<header>
 			<div class="topNav">
 				<p class="linksText">Gratis verzending</p>
-				<p class="middenText">Voor 10 uur bestellen</p>
+				<p class="middenText">Voor 22:22 uur bestellen, morgen in huis</p>
 				<p class="rechtsText">Bel onze klantenservice voor vragen</p>
 			</div>
 			<nav>
@@ -36,71 +36,66 @@
 				</div>
 			</nav>
 		</header>
-		<div class="wrapper">
-			<h1>Klantenservice</h1>
-		</div>
 		<div class="row2">
 			<div class="column2">
-				<h1>Elke dag bereikbaar</h1>
-				<p>Maandag t/m vrijdag: 9.00 - 18.00</p>
-				<p>Zaterdag & Zondag: 10.00 - 16.00</p>
+				<h1>Uw gegevens zijn beveiligd</h1>
+				<p>Onze website is beveiligd met SSL encryptie.</p>
+				<p>Hackers kunnen niet meelezen</p>
 			</div>
 			<div class="column2">
-				<h1>Contactgegevens</h1>
+				<h1>Vragen?</h1>
 				<p>Telefoonnummer: 075-123456</p>
 				<p>Email: klantenservice@techy24.nl</p>
 			</div>
 			<div class="column2">
-				<h1>Kantoor</h1>
-				<p>Adres: Guisweg 2 te Zaandam</p>
-				<p>Maandag t/m Zaterdag: 8:00 - 20:00</p>
+				<img
+					src="https://www.thuiswinkel.org/Images/logo-thuiswinkel-waarborg_horizontaal.svg"
+					alt=""
+				/>
 			</div>
 		</div>
 
 		<div class="form">
-			<h2>Neem contact op via dit formulier</h2>
+			<h2>Vul uw gegevens hieronder in om uw bestelling te voltooien</h2>
 			<form action="/action_page.php">
-				<label for="fname">Voornaam</label>
-				<input
-					type="text"
-					id="fname"
-					name="firstname"
-					placeholder="Uw voornaam.."
-				/>
+				<label for="fname">Voornaam*</label>
+				<input type="text" placeholder="Uw voornaam.." />
 
-				<label for="lname">Achternaam</label>
-				<input
-					type="text"
-					id="lname"
-					name="lastname"
-					placeholder="Uw achternaam.."
-				/>
+				<label for="lname">Achternaam*</label>
+				<input type="text" placeholder="Uw achternaam.." />
 
-				<label for="bestelnr">Bestelnummer</label>
-				<input
-					type="text"
-					id="lname"
-					name="bestelnr"
-					placeholder="Uw bestelnumnmer.."
-				/>
+				<label for="bestelnr">Emailadres*</label>
+				<input type="text" placeholder="Uw emailadres.." />
 
-				<label for="bericht">Uw bericht</label>
+				<label for="bestelnr">Telefoonnummer*</label>
+				<input type="text" placeholder="Uw telefoonnummer.." />
+
+				<label for="country">Land*</label>
+				<select id="country" name="country">
+					<option value="australia">Nederland</option>
+					<option value="canada">België</option>
+					<option value="anders">Anders</option>
+				</select>
+
+				<label for="bestelnr">Straatnaam en huisnummer*</label>
+				<input type="text" placeholder="Uw straatnaam en huisnummer.." />
+
+				<label for="bestelnr">Plaats*</label>
+				<input type="text" placeholder="Uw plaats.." />
+
+				<label for="bestelnr">Postcode*</label>
+				<input type="text" placeholder="Uw postcode.." />
+
+				<label for="bericht">Opmerkingen</label>
 				<input
 					type="text"
 					id="lname"
 					name="bericht"
-					placeholder="Uw bericht.."
-					style="height: 100px"
+					placeholder="Uw opmerkingen.."
+					style="height: 75px"
 				/>
 
-				<label for="country">Land</label>
-				<select id="country" name="country">
-					<option value="australia">Nederland</option>
-					<option value="canada">België</option>
-					<option value="usa">Buiten BeNeLux</option>
-				</select>
-
-				<input type="submit" value="Verstuur" />
+				<input type="submit" class="versturen" value="Betalen" />
 			</form>
 		</div>
 		<div class="wrapper"><%- include('../partials/footer'); %></div>

@@ -42,6 +42,10 @@ app.get('/bestellen', (req, res) => {
 	res.render('bestellen');
 });
 
+app.get('/klantgegevens', (req, res) => {
+	res.render('klantgegevens');
+});
+
 // Importeer Puppeteer (Data-scraper)
 
 const puppeteer = require('puppeteer');

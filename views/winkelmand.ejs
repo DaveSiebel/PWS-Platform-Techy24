@@ -1,139 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bestelling plaatsen | Techy</title>
+		<link rel="stylesheet" href="css/winkelmand.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Document</title>
-	<link rel="stylesheet" href="css/winkelmand.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<body>
+		<header>
+			<div class="topNav">
+				<p class="linksText">Gratis verzending</p>
+				<p class="middenText">Voor 22:22 uur bestellen, morgen in huis</p>
+				<p class="rechtsText">Bel onze klantenservice voor vragen</p>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/klantenservice">Klantenservice</a></li>
+					<li style="float: right">
+						<a href="/winkelmand">Winkelmand</a>
+					</li>
+				</ul>
+				<div class="search-container">
+					<form id="form">
+						<input type="text" id="form_input" />
+						<button type="submit" id="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+		<script src="js/zoekbalk.js"></script>
 
-	<!-- <link rel="stylesheet" href="css\all.css" /> -->
-</head>
+		<div class="shopping-cart">
+			<!-- Title -->
+			<div class="title">Winkelmand</div>
 
-<body>
-	<header>
-		<div class="topNav">
-			<p class="linksText">Gratis verzending</p>
-			<p class="middenText">Voor 10 uur bestellen</p>
-			<p class="rechtsText">Bel onze klantenservice voor vragen</p>
+			<!-- Product #1 -->
+			<div class="item">
+				<div class="buttons">
+					<span class="delete-btn"></span>
+					<span class="like-btn"></span>
+				</div>
+
+				<div class="image">
+					<img src="img/iphone-13.jpg" alt="" width="70px" />
+				</div>
+
+				<div class="description">
+					<span><b>Apple</b></span>
+					<span>Iphone 13</span>
+					<span>Space blue</span>
+				</div>
+
+				<div class="quantity">
+					<button class="plus-btn" type="button" name="button">
+						<img src="plus.svg" alt="" />
+					</button>
+					<input type="text" name="name" value="1" />
+					<button class="minus-btn" type="button" name="button">
+						<img src="minus.svg" alt="" />
+					</button>
+				</div>
+
+				<div class="total-price">€1099</div>
+			</div>
+
+			<!-- Product #2 -->
+			<div class="item">
+				<div class="buttons">
+					<span class="delete-btn"></span>
+					<span class="like-btn"></span>
+				</div>
+
+				<div class="image">
+					<img
+						src="https://media.s-bol.com/qDQXklEwW1m2/kZpX5X6/634x1200.jpg"
+						alt=""
+						width="70px"
+						height="70px"
+					/>
+				</div>
+
+				<div class="description">
+					<span><b>Airpods</b></span>
+					<span>Draadloze oordopjes</span>
+					<span>Wit</span>
+				</div>
+
+				<div class="quantity">
+					<button class="plus-btn" type="button" name="button">
+						<img src="plus.svg" alt="" />
+					</button>
+					<input type="text" name="name" value="1" />
+					<button class="minus-btn" type="button" name="button">
+						<img src="minus.svg" alt="" />
+					</button>
+				</div>
+
+				<div class="total-price">€299</div>
+			</div>
+
+			<!-- Product #3 -->
+			<div class="item">
+				<div class="buttons">
+					<span class="delete-btn"></span>
+					<span class="like-btn"></span>
+				</div>
+
+				<div class="image">
+					<img
+						src="https://media.s-bol.com/R58OYG82yBYK/vomGpjm/898x1200.jpg"
+						alt=""
+						width="70px"
+					/>
+				</div>
+
+				<div class="description">
+					<span><b>Computer</b></span>
+					<span>i5-9600KF, NVIDIA GTX 3060</span>
+					<span></span>
+				</div>
+
+				<div class="quantity">
+					<button class="plus-btn" type="button" name="button">
+						<img src="plus.svg" alt="" />
+					</button>
+					<input type="text" name="name" value="1" />
+					<button class="minus-btn" type="button" name="button">
+						<img src="minus.svg" alt="" />
+					</button>
+				</div>
+
+				<div class="total-price">€1799</div>
+			</div>
+			<input
+				type="submit"
+				class="Doorgaan"
+				value="Doorgaan"
+				onClick="window.open('/klantgegevens'), '__self'"
+			/>
+			<div class="title totaalPrijs">Totaal: €3197</div>
 		</div>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/klantenservice">Klantenservice</a></li>
-				<li style="float: right"><a href="/winkelmand" class="active">Winkelmand</a></li>
-			</ul>
-			<div class="search-container">
-				<form id="form">
-					<input type="text" id="form_input" />
-					<button type="submit" id="submit"><i class="fa fa-search"></i></button>
-				</form>
-			</div>
-		</nav>
-	</header>
-	<script src="js/zoekbalk.js"></script>
-
-	<div class="shopping-cart">
-		<!-- Title -->
-		<div class="title">
-			Shopping Bag
-		</div>
-
-		<!-- Product #1 -->
-		<div class="item">
-			<div class="buttons">
-				<span class="delete-btn"></span>
-				<span class="like-btn"></span>
-			</div>
-
-			<div class="image">
-				<img src="img/iphone-13.jpg" alt="" width="70px" />
-			</div>
-
-			<div class="description">
-				<span>Apple</span>
-				<span>Iphone 13</span>
-				<span>Space blue</span>
-			</div>
-
-			<div class="quantity">
-				<button class="plus-btn" type="button" name="button">
-					<img src="plus.svg" alt="" />
-				</button>
-				<input type="text" name="name" value="1">
-				<button class="minus-btn" type="button" name="button">
-					<img src="minus.svg" alt="" />
-				</button>
-			</div>
-
-			<div class="total-price">$1279</div>
-		</div>
-
-		<!-- Product #2 -->
-		<div class="item">
-			<div class="buttons">
-				<span class="delete-btn"></span>
-				<span class="like-btn"></span>
-			</div>
-
-			<div class="image">
-				<img src="img/iphone-13.jpg" alt="" width="70px" />
-			</div>
-
-			<div class="description">
-				<span>Apple</span>
-				<span>Iphone 13 Mini</span>
-				<span>Space blue</span>
-			</div>
-
-			<div class="quantity">
-				<button class="plus-btn" type="button" name="button">
-					<img src="plus.svg" alt="" />
-				</button>
-				<input type="text" name="name" value="1">
-				<button class="minus-btn" type="button" name="button">
-					<img src="minus.svg" alt="" />
-				</button>
-			</div>
-
-			<div class="total-price">$1079</div>
-		</div>
-
-		<!-- Product #3 -->
-		<div class="item">
-			<div class="buttons">
-				<span class="delete-btn"></span>
-				<span class="like-btn"></span>
-			</div>
-
-			<div class="image">
-				<img src="img/iphone-13.jpg" alt="" width="70px" />
-			</div>
-
-			<div class="description">
-				<span>Apple</span>
-				<span>Iphone 13 Pro Max</span>
-				<span>Space blue</span>
-			</div>
-
-			<div class="quantity">
-				<button class="plus-btn" type="button" name="button">
-					<img src="plus.svg" alt="" />
-				</button>
-				<input type="text" name="name" value="1">
-				<button class="minus-btn" type="button" name="button">
-					<img src="minus.svg" alt="" />
-				</button>
-			</div>
-
-			<div class="total-price">$1379</div>
-		</div>
-	</div>
-
-</body>
-
-
+		<!-- <div class="wrapper"><%- include('../partials/footer'); %></div> -->
+	</body>
 </html>
