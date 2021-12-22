@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Product pagina</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Product pagina</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-	</head>
-	<body>
-		<%- include('../partials/header'); %>
-        <h2 id="productNaam">Laden...</h2>
-        <h3 id="productBeschrijving">Laden...</h2>
-        <p id="productPrijs">Laden...</p>
-		<img id="productAfbeelding" src="https://www.vuescript.com/wp-content/uploads/2018/11/Show-Loader-During-Image-Loading-vue-load-image.png" alt="">
+</head>
+
+<body>
+	<header>
+		<!-- Deze code zorgt voor het balkje bovenin -->
+		<div class="topNav">
+			<p class="linksText">Gratis verzending</p>
+			<p class="middenText">Voor 22:22 uur bestellen, morgen in huis</p>
+			<p class="rechtsText">Bel onze klantenservice voor vragen</p>
+		</div>
+		<nav>
+			<ul>
+				<li><img src="img/logo.png" alt="Logo van Techy" id="logo" /></li>
+				<li><span id="logoText">Techy</span></li>
+				<li><a class="active" href="/">Home</a></li>
+				<li><a href="/klantenservice">Klantenservice</a></li>
+				<li style="float: right"><a href="/winkelmand">Winkelmand</a></li>
+			</ul>
+			<div class="search-container">
+				<form id="form">
+					<input type="text" id="form_input" />
+					<button type="submit" id="submit">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<h2 id="productNaam">Laden...</h2>
+	<h3 id="productBeschrijving">Laden...</h2>
+		<p id="productPrijs">Laden...</p>
+		<img id="productAfbeelding"
+			src="https://www.vuescript.com/wp-content/uploads/2018/11/Show-Loader-During-Image-Loading-vue-load-image.png"
+			alt="">
 		<%- include('../partials/footer'); %>
-        <script src="js/product_informatie.js"></script>
-	</body>
+		<script src="js/product_informatie.js"></script>
+</body>
+
 </html>
