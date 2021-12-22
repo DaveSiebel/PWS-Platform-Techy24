@@ -1,109 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	</head>
 
-	<body>
-		<header>
-			<div class="topNav">
-				<p class="linksText">Gratis verzending</p>
-				<p class="middenText">Voor 10 uur bestellen</p>
-				<p class="rechtsText">Bel onze klantenservice voor vragen</p>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="/">Home </a></li>
-					<li><a href="/klantenservice" class="active">Klantenservice</a></li>
-					<li style="float: right"><a href="/winkelmand">Winkelmand</a></li>
-				</ul>
-				<div class="search-container">
-					<form id="form">
-						<input type="text" id="form_input" />
-						<button type="submit" id="submit">
-							<i class="fa fa-search"></i>
-						</button>
-					</form>
-				</div>
-			</nav>
-		</header>
-		<div class="wrapper">
-			<h1>Klantenservice</h1>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="topNav">
+			<p class="linksText">Gratis verzending</p>
+			<p class="middenText">Voor 10 uur bestellen</p>
+			<p class="rechtsText">Bel onze klantenservice voor vragen</p>
 		</div>
-		<div class="row2">
-			<div class="column2">
-				<h1>Elke dag bereikbaar</h1>
-				<p>Maandag t/m vrijdag: 9.00 - 18.00</p>
-				<p>Zaterdag & Zondag: 10.00 - 16.00</p>
+		<nav>
+			<ul>
+				<li><img src="img/logo.png" alt="Logo van Techy" id="logo" /></li>
+				<li><span id="logoText">Techy</span></li>
+				<li><a href="/">Home </a></li>
+				<li><a href="/klantenservice" class="active">Klantenservice</a></li>
+				<li style="float: right"><a href="/winkelmand">Winkelmand</a></li>
+			</ul>
+			<div class="search-container">
+				<form id="form">
+					<input type="text" id="form_input" />
+					<button type="submit" id="submit">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
 			</div>
-			<div class="column2">
-				<h1>Contactgegevens</h1>
-				<p>Telefoonnummer: 075-123456</p>
-				<p>Email: klantenservice@techy24.nl</p>
-			</div>
-			<div class="column2">
-				<h1>Kantoor</h1>
-				<p>Adres: Guisweg 2 te Zaandam</p>
-				<p>Maandag t/m Zaterdag: 8:00 - 20:00</p>
-			</div>
+		</nav>
+	</header>
+	<div class="wrapper">
+		<h1>Klantenservice</h1>
+	</div>
+	<div class="row2">
+		<div class="column2">
+			<h1>Elke dag bereikbaar</h1>
+			<p>Maandag t/m vrijdag: 9.00 - 18.00</p>
+			<p>Zaterdag & Zondag: 10.00 - 16.00</p>
 		</div>
-
-		<div class="form">
-			<h2>Neem contact op via dit formulier</h2>
-			<form action="/action_page.php">
-				<label for="fname">Voornaam</label>
-				<input
-					type="text"
-					id="fname"
-					name="firstname"
-					placeholder="Uw voornaam.."
-				/>
-
-				<label for="lname">Achternaam</label>
-				<input
-					type="text"
-					id="lname"
-					name="lastname"
-					placeholder="Uw achternaam.."
-				/>
-
-				<label for="bestelnr">Bestelnummer</label>
-				<input
-					type="text"
-					id="lname"
-					name="bestelnr"
-					placeholder="Uw bestelnumnmer.."
-				/>
-
-				<label for="bericht">Uw bericht</label>
-				<input
-					type="text"
-					id="lname"
-					name="bericht"
-					placeholder="Uw bericht.."
-					style="height: 100px"
-				/>
-
-				<label for="country">Land</label>
-				<select id="country" name="country">
-					<option value="australia">Nederland</option>
-					<option value="canada">België</option>
-					<option value="usa">Buiten BeNeLux</option>
-				</select>
-
-				<input type="submit" value="Verstuur" />
-			</form>
+		<div class="column2">
+			<h1>Contactgegevens</h1>
+			<p>Telefoonnummer: 075-123456</p>
+			<p>Email: klantenservice@techy24.nl</p>
 		</div>
-		<div class="wrapper"><%- include('../partials/footer'); %></div>
-		<script src="js/zoekbalk.js"></script>
-	</body>
+		<div class="column2">
+			<h1>Kantoor</h1>
+			<p>Adres: Guisweg 2 te Zaandam</p>
+			<p>Maandag t/m Zaterdag: 8:00 - 20:00</p>
+		</div>
+	</div>
+
+	<div class="form">
+		<h2>Neem contact op via dit formulier</h2>
+		<form action="/action_page.php">
+			<label for="fname">Voornaam</label>
+			<input type="text" id="fname" name="firstname" placeholder="Uw voornaam.." />
+
+			<label for="lname">Achternaam</label>
+			<input type="text" id="lname" name="lastname" placeholder="Uw achternaam.." />
+
+			<label for="bestelnr">Bestelnummer</label>
+			<input type="text" id="lname" name="bestelnr" placeholder="Uw bestelnumnmer.." />
+
+			<label for="bericht">Uw bericht</label>
+			<input type="text" id="lname" name="bericht" placeholder="Uw bericht.." style="height: 100px" />
+
+			<label for="country">Land</label>
+			<select id="country" name="country">
+				<option value="australia">Nederland</option>
+				<option value="canada">België</option>
+				<option value="usa">Buiten BeNeLux</option>
+			</select>
+
+			<input type="submit" value="Verstuur" />
+		</form>
+	</div>
+	<div class="wrapper"><%- include('../partials/footer'); %></div>
+	<script src="js/zoekbalk.js"></script>
+</body>
+
 </html>
